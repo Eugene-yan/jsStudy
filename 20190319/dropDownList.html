@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jquery 下拉列表</title>
+    <script src="../js/jquery.min.js"></script>
+    <style type="text/css">
+        body{
+            margin: 0;
+        }
+        table{
+            border-style:solid;
+            border-width:1px;
+            border-color: aqua;
+            solid-color:black;
+            width: 600px;
+            margin:0 auto;
+        }
+        .sp1{
+            float:left;
+            font-family:宋体;
+            color:green;
+        }
+        .selectall{
+            width:100px;
+            height: 200px;
+        }
+        span p a{
+            padding-left:20px;
+        }
+        .sp2{
+            float:right;
+            font-family:宋体;
+            color:red;
+        }
+    </style>
+    <script>
+        $(function(){
+            $("#selectOneToRight").click(function(){
+                $("#left option:selected").appendTo($("#right"));
+            });
+        });
+
+        $(function(){
+            $("#selectAllToRight").click(function(){
+                $("#left option").appendTo($("#right"));
+            });
+        });
+
+        $(function(){
+            $("#left option").dblclick(function(){
+                $("#left option:selected").appendTo($("#right"));
+            });
+        });
+    </script>
+</head>
+<body>
+<table>
+<tr>
+    <td>
+        <span class="sp1">
+            <!--<font color="green" face="宋体">已有商品</font><br />-->
+            已有商品<br />
+            <!--<select multiple="multiple" style="width:100px;height:200px;" id="left">-->
+            <select multiple="multiple" class="selectall" id="left">
+                <option value="">IPhone6s</option>
+                <option value="">小米4</option>
+                <option value="">锤子T2</option>
+            </select>
+            <p><a href="#" id="selectOneToRight">>></a></p>
+            <p><a href="#" id="selectAllToRight">>>></a></p>
+        </span>
+        <span class="sp2">
+            未有商品<br />
+            <select multiple="multiple" class="selectall" name="" id="right">
+                <option value="">三星Note3</option>
+                <option value="">华为6s</option>
+            </select>
+            <p><a href="#"><<</a></p>
+            <p><a href="#"><<<</a></p>
+        </span>
+    </td>
+</tr>
+</table>
+</body>
+</html>
